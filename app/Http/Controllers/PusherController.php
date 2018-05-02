@@ -10,21 +10,18 @@ class PusherController extends Controller
 
     public function sendNotification()
     {
-	
         $options = array(
-            'cluster' => 'ap2',
+            'cluster' => env('PUSHER_APP_CLUSTER'),
             'encrypted' => true
         );
         $pusher = new Pusher(
-            'b62110db35c8b08d5dbe',
-            'c12f77201d89a3c84b23',
-            '460683',
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
             $options
         );
-	    
-	$message= "Hello User";
-		
+      	$message= '{"message": "Hello Hasan"}';
         $pusher->trigger('notify', 'notify-event', $message);
-        
+
     }
 }
