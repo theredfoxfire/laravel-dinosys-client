@@ -49,7 +49,7 @@
         </div>
       </div>
     </nav>
-    <h1>Real-time notifications in Laravel using Pusher</h1>
+    <h1>Notifications in Laravel using Pusher</h1>
 
     <script src="https://js.pusher.com/4.2/pusher.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -58,6 +58,8 @@
     <script>
     function notifyMe(body, image, title) {
       // Let's check if the browser supports notifications
+      var audio = new Audio('https://web.whatsapp.com/res/notification.mp3');
+      audio.play();
       var options = {
         body: body,
         icon: image
@@ -70,6 +72,9 @@
       else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
         var notification = new Notification(title, options);
+        notification.sound;
+        var audio = new Audio('https://web.whatsapp.com/res/notification.mp3');
+        audio.play();
       }
 
       // Otherwise, we need to ask the user for permission

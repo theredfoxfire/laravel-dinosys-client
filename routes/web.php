@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/notify', 'PusherController@sendNotification');
+Route::get('/submit', 'PusherController@submitNotif')->name('notif.submit');
+Route::post('/notify', 'PusherController@sendNotification')->name('notif.send');
+Route::get('/last', 'PusherController@getLastID')->name('notif.last');
 
 Route::view('/home', 'home');
