@@ -72,9 +72,6 @@
       else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
         var notification = new Notification(title, options);
-        notification.sound;
-        var audio = new Audio('https://web.whatsapp.com/res/notification.mp3');
-        audio.play();
       }
 
       // Otherwise, we need to ask the user for permission
